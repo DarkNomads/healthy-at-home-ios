@@ -35,7 +35,7 @@
             <objects>
                 <navigationController id="HGe-EI-wBu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="home-solid" id="EyN-tF-Mbm"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rYS-Bm-oJO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rYS-Bm-oJO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,7 +52,7 @@
             <objects>
                 <navigationController id="2fm-bi-WtI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="dumbbell-solid" id="flE-6f-2wz"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="enE-tD-PLO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="enE-tD-PLO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -69,7 +69,7 @@
             <objects>
                 <viewController title="Home" id="M19-U6-mJx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BY6-Y7-RoT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Fq6-IU-Isn"/>
                         <color key="backgroundColor" red="0.0" green="0.68793255090000005" blue="0.94205325839999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,7 +85,7 @@
             <objects>
                 <navigationController id="gvg-a6-Va7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="book-solid" id="Pd9-Br-Mjx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="erh-AC-FPw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="erh-AC-FPw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -102,7 +102,7 @@
             <objects>
                 <viewController title="Food Diary" id="aZo-y8-Hsr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qgJ-a5-Xiy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="7iz-JL-6ee"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -118,7 +118,7 @@
             <objects>
                 <viewController title="Workouts" id="ELX-TV-3Jf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4uO-LD-HuW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="PSo-12-lbU"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
@@ -134,7 +134,7 @@
             <objects>
                 <navigationController id="XFk-m6-DDY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="bed-solid" id="LYO-ps-4FS"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9pd-Pa-K4g">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9pd-Pa-K4g">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -151,7 +151,7 @@
             <objects>
                 <navigationController id="k3s-Hz-LxU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="user-solid" id="4u9-50-5gY"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yeG-MJ-PT5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yeG-MJ-PT5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -168,7 +168,7 @@
             <objects>
                 <viewController title="Sleep Tracker" id="oGF-ce-one" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gmR-wJ-frj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="38m-ek-Vi0"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
@@ -184,7 +184,7 @@
             <objects>
                 <viewController title="Profile" id="jdv-zY-bp0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dmc-hX-z13">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="X17-NH-jQe"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,9 +15,6 @@
 		177405A22694E1DD001DD069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177405A02694E1DD001DD069 /* LaunchScreen.storyboard */; };
 		177405AD2694E1DD001DD069 /* HealthyAtHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177405AC2694E1DD001DD069 /* HealthyAtHomeTests.swift */; };
 		177405B82694E1DE001DD069 /* HealthyAtHomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177405B72694E1DE001DD069 /* HealthyAtHomeUITests.swift */; };
-		2C5CDE5626A1387D00540642 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5CDE5526A1387D00540642 /* SwiftUICharts */; };
-		2C5CDE5826A138C800540642 /* SleepTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5CDE5726A138C800540642 /* SleepTrackerView.swift */; };
-		2C5CDE5B26A138F000540642 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5CDE5A26A138F000540642 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +49,6 @@
 		177405B32694E1DD001DD069 /* HealthyAtHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthyAtHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		177405B72694E1DE001DD069 /* HealthyAtHomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyAtHomeUITests.swift; sourceTree = "<group>"; };
 		177405B92694E1DE001DD069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C5CDE5726A138C800540642 /* SleepTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTrackerView.swift; sourceTree = "<group>"; };
-		2C5CDE5A26A138F000540642 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C5CDE5626A1387D00540642 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +106,6 @@
 				1774059E2694E1DD001DD069 /* Assets.xcassets */,
 				177405A02694E1DD001DD069 /* LaunchScreen.storyboard */,
 				177405A32694E1DD001DD069 /* Info.plist */,
-				2C5CDE5726A138C800540642 /* SleepTrackerView.swift */,
-				2C5CDE5A26A138F000540642 /* ProfileView.swift */,
 			);
 			path = HealthyAtHome;
 			sourceTree = "<group>";
@@ -153,7 +145,6 @@
 			);
 			name = HealthyAtHome;
 			packageProductDependencies = (
-				2C5CDE5526A1387D00540642 /* SwiftUICharts */,
 			);
 			productName = HealthyAtHome;
 			productReference = 177405922694E1DB001DD069 /* HealthyAtHome.app */;
@@ -227,7 +218,6 @@
 			);
 			mainGroup = 177405892694E1DB001DD069;
 			packageReferences = (
-				2C5CDE5426A1387D00540642 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 177405932694E1DB001DD069 /* Products */;
 			projectDirPath = "";
@@ -273,8 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1774059A2694E1DC001DD069 /* ViewController.swift in Sources */,
-				2C5CDE5826A138C800540642 /* SleepTrackerView.swift in Sources */,
-				2C5CDE5B26A138F000540642 /* ProfileView.swift in Sources */,
 				177405962694E1DC001DD069 /* AppDelegate.swift in Sources */,
 				177405982694E1DC001DD069 /* SceneDelegate.swift in Sources */,
 			);
@@ -603,25 +591,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		2C5CDE5426A1387D00540642 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		2C5CDE5526A1387D00540642 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C5CDE5426A1387D00540642 /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1774058A2694E1DB001DD069 /* Project object */;
 }

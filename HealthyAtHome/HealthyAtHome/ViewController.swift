@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftUI
-import SwiftUICharts   //class for line chart
 
 //Defult ViewController
 class ViewController: UIViewController {
@@ -21,33 +20,57 @@ class ViewController: UIViewController {
 }
 
 
-// Sleep tracker view controller class
-class SleepTrackerViewController: UIViewController {
+// Sleep Tracker ----------------------------------------------------------------------
+struct sleepTrackerView: View {
+  var body: some View {
     
-    let contentView = UIHostingController(rootView: SleepTrackerView())
+      VStack {
+        Spacer()
+          Text("Daily Sleep Goal:").font(.system(size: 26))
+        HStack {
+            Text("0").font(.system(size: 24))
+            Text(" Hours").font(.system(size: 24))
+        }
+          
+        Spacer()
+        Spacer()
+        Spacer()
+      }
+  }
+}
+
+class SleepTrackerHostingController: UIHostingController<sleepTrackerView> {
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder,rootView: sleepTrackerView());
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.addSubview(contentView.view)
-        
-    
+        view.backgroundColor = .systemIndigo
     }
-
-
 }
 
-// Profile view controller class
-class ProfileViewController: UIViewController {
+
+// Profile ----------------------------------------------------------------------------------
+struct profileView: View {
+  var body: some View {
     
-    let contentView = UIHostingController(rootView: ProfileView())
+    Text("Profile").padding()
+    
+  }
+}
+
+class ProfileHostingController: UIHostingController<profileView> {
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder,rootView: profileView());
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.addSubview(contentView.view)
+        view.backgroundColor = .red
     }
-
-
 }
+
 

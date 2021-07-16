@@ -139,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="iMM-kk-bjb" kind="relationship" relationship="rootViewController" id="8CS-c6-cjj"/>
+                        <segue destination="rdd-Uq-3M5" kind="relationship" relationship="rootViewController" id="GqB-RN-YpV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fO9-Ik-axE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,7 +156,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="l4G-Rc-TXo" kind="relationship" relationship="rootViewController" id="ww7-eF-0MB"/>
+                        <segue destination="q5U-xu-U8w" kind="relationship" relationship="rootViewController" id="nxD-Xi-HJO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O2t-xi-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,44 +164,111 @@
             <point key="canvasLocation" x="2219" y="1608"/>
         </scene>
         <!--Sleep Tracker-->
-        <scene sceneID="uO8-JI-Iv6">
+        <scene sceneID="pb9-Wl-SIY">
             <objects>
-                <hostingController title="Sleep Tracker" id="iMM-kk-bjb" customClass="SleepTrackerHostingController" customModule="HealthyAtHome" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nMp-z0-6tH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <viewLayoutGuide key="safeArea" id="tWI-Qa-WHU"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                <viewController title="Sleep Tracker" id="rdd-Uq-3M5" customClass="SleepTrackerViewController" customModule="HealthyAtHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y5y-ad-qfc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="829"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-pG-bCL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="829"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suR-2R-PzY" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="829"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8F-OZ-fGV">
+                                                <rect key="frame" x="192.5" y="8" width="29" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKj-Np-Lch">
+                                                <rect key="frame" x="181" y="404" width="52" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXE-8f-z3q">
+                                                <rect key="frame" x="179" y="800" width="56" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="chart.bar.xaxis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OOm-bV-eTI">
+                                                <rect key="frame" x="35" y="109.5" width="344" height="188"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstItem="D8F-OZ-fGV" firstAttribute="centerX" secondItem="suR-2R-PzY" secondAttribute="centerX" id="09N-5x-HVg"/>
+                                            <constraint firstItem="uKj-Np-Lch" firstAttribute="centerX" secondItem="suR-2R-PzY" secondAttribute="centerX" id="QCc-s5-KbF"/>
+                                            <constraint firstItem="VXE-8f-z3q" firstAttribute="top" secondItem="uKj-Np-Lch" secondAttribute="bottom" constant="375" id="RnW-q7-SUp"/>
+                                            <constraint firstItem="VXE-8f-z3q" firstAttribute="centerX" secondItem="suR-2R-PzY" secondAttribute="centerX" id="VS2-4a-gyc"/>
+                                            <constraint firstItem="D8F-OZ-fGV" firstAttribute="top" secondItem="suR-2R-PzY" secondAttribute="top" constant="8" id="WiM-vz-nNL"/>
+                                            <constraint firstAttribute="bottom" secondItem="VXE-8f-z3q" secondAttribute="bottom" constant="8" id="eVg-EK-NEa"/>
+                                            <constraint firstItem="uKj-Np-Lch" firstAttribute="top" secondItem="D8F-OZ-fGV" secondAttribute="bottom" constant="375" id="xjk-OQ-HFB"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstItem="suR-2R-PzY" firstAttribute="width" secondItem="M4d-pG-bCL" secondAttribute="width" id="8te-rg-vjs"/>
+                                    <constraint firstItem="suR-2R-PzY" firstAttribute="leading" secondItem="M4d-pG-bCL" secondAttribute="leading" id="XhU-gd-tEY"/>
+                                    <constraint firstAttribute="trailing" secondItem="suR-2R-PzY" secondAttribute="trailing" id="ZD4-OZ-Crf"/>
+                                    <constraint firstAttribute="bottom" secondItem="suR-2R-PzY" secondAttribute="bottom" id="lIA-O3-zlU"/>
+                                    <constraint firstItem="suR-2R-PzY" firstAttribute="height" secondItem="M4d-pG-bCL" secondAttribute="height" priority="250" id="mlj-Dh-eFq"/>
+                                    <constraint firstItem="suR-2R-PzY" firstAttribute="top" secondItem="M4d-pG-bCL" secondAttribute="top" id="oop-8I-7P9"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="CyZ-pe-NYY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="1mw-kG-Ope"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yJN-JX-Qtk"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="yJN-JX-Qtk" firstAttribute="bottom" secondItem="M4d-pG-bCL" secondAttribute="bottom" id="89R-Yb-nuC"/>
+                            <constraint firstItem="M4d-pG-bCL" firstAttribute="top" secondItem="yJN-JX-Qtk" secondAttribute="top" id="HCH-85-VYC"/>
+                            <constraint firstItem="yJN-JX-Qtk" firstAttribute="trailing" secondItem="M4d-pG-bCL" secondAttribute="trailing" id="bjR-Uh-6Xc"/>
+                            <constraint firstItem="M4d-pG-bCL" firstAttribute="leading" secondItem="yJN-JX-Qtk" secondAttribute="leading" id="nLh-eq-ave"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sleep Tracker" id="bLr-vn-IuZ"/>
-                </hostingController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4F1-9d-KgY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    <navigationItem key="navigationItem" title="Sleep Tracker" id="L9A-zN-9oP"/>
+                    <size key="freeformSize" width="414" height="1000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAu-DV-xk0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="2371"/>
+            <point key="canvasLocation" x="1060.8695652173915" y="2370.5357142857142"/>
         </scene>
         <!--Profile-->
-        <scene sceneID="sh8-di-dAr">
+        <scene sceneID="IOS-Nv-AJC">
             <objects>
-                <hostingController title="Profile" id="l4G-Rc-TXo" customClass="ProfileHostingController" customModule="HealthyAtHome" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wZ2-aO-FbA">
+                <viewController title="Profile" id="q5U-xu-U8w" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lGS-Jz-DZY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ExH-C7-w6H"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lNh-Lg-A4H"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oyn-1z-AbY"/>
-                </hostingController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R2x-ox-v0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    <navigationItem key="navigationItem" id="gN7-Tg-2n2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mdo-Sv-dCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="2389"/>
+            <point key="canvasLocation" x="2219" y="2395"/>
         </scene>
     </scenes>
     <resources>
         <image name="bed-solid" width="35" height="28"/>
         <image name="book-solid" width="24" height="27"/>
+        <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
         <image name="dumbbell-solid" width="35" height="28"/>
         <image name="home-solid" width="32" height="28"/>
         <image name="user-solid" width="24" height="27"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -211,8 +278,8 @@
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

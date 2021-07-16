@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SleepTrackerView: View {
     var body: some View {
-        Text("SleepTracker")
+        Text("Sleep Tracker")
     }
 }
 

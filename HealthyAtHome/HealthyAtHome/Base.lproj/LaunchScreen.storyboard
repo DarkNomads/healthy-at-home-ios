@@ -15,20 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon (No Background)" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-ZJ-4cO">
-                                <rect key="frame" x="32" y="254" width="326" height="336"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="App Logo Design (No Background)" translatesAutoresizingMaskIntoConstraints="NO" id="ziN-g5-Lmc">
+                                <rect key="frame" x="-5" y="222" width="400" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="336" id="DD5-0o-c9p"/>
-                                    <constraint firstAttribute="width" secondItem="P5x-ZJ-4cO" secondAttribute="height" multiplier="163:168" id="FnM-5g-xHs"/>
-                                    <constraint firstAttribute="width" constant="326" id="b2W-xq-CcZ"/>
+                                    <constraint firstAttribute="height" constant="400" id="Zdk-Qp-Qej"/>
+                                    <constraint firstAttribute="width" constant="400" id="cD9-gR-XDs"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0" green="0.68793255090000005" blue="0.94205325839999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="P5x-ZJ-4cO" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CPP-jT-XcA"/>
-                            <constraint firstItem="P5x-ZJ-4cO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LYk-fY-fUh"/>
+                            <constraint firstItem="ziN-g5-Lmc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2sr-XJ-xbR"/>
+                            <constraint firstItem="ziN-g5-Lmc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b2p-rj-BqL"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="App Icon (No Background)" width="960" height="720"/>
+        <image name="App Logo Design (No Background)" width="1000" height="1000"/>
     </resources>
 </document>

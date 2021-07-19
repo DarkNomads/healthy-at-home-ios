@@ -24,46 +24,39 @@ class SleepTrackerViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var CardTableView: UITableView!
     
-    let pictures: [UIImage] = [UIImage(named: "Bar-Chart-Trans.png")!,UIImage(named: "empty.png")!,UIImage(named: "empty.png")!,UIImage(named: "empty.png")!,UIImage(named: "empty.png")!,UIImage(named: "empty.png")!]
-    let titles: [String] = ["Sleep Data", "", "", "", "",""]
-    let unit: [String] = ["Hours","Hours","Hours","am","pm",""]
-    let hour: [String] = ["0","0","0","0","0",""]
-    let bigTitle: [String] = ["", "Daily Sleep Goal", "Weekly Average", "Wake Up Goal", "Recommended Bedtime", "Edit Sleep Routine"]
+    let circleImage: UIImage = UIImage(named: "circle_indigo.png")!
+    let titles: [String] = ["Sleep Data", "Sleep Goal", "Weekly Average", "Wake Up Goal", "Recommended Bedtime"]
+    let unit: [String] = ["Hours","Hours","Hours","am","pm"]
+    let hour: [String] = ["0","0","0","0","0"]
     
-//    let controller = UIHostingController(rootView: SleepTrackerChart())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemIndigo
         
-//        view.backgroundColor = .systemIndigo
-//        addChild(controller)
-        
-        
-//        view.addSubview(controller.view)
-//
-//        controller.view.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            controller.view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-//            //controller.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-//        ])
-        
+        //CardTableView.dataSource = self
+        //CardTableView.delegate = self
+
     }
     
-    
-    
-    
-    //how many rows in the tableview
+    // How many rows in the tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pictures.count
+        return 5
     }
     // Defines what cells are being used
+    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
-        cell.configure(picture: pictures[indexPath.row], title: titles[indexPath.row], unit: unit[indexPath.row], hour: hour[indexPath.row], bigTitle: bigTitle[indexPath.row])
+        cell.cardView.layer.borderWidth = 1
+        cell.cardView.layer.borderColor = UIColor.black.cgColor
+        cell.cardView.layer.cornerRadius = 30
+        
+        cell.configure(picture: circleImage, title: titles[indexPath.row], unit: unit[indexPath.row], hour: hour[indexPath.row])
         return cell
     }
-    
 }
 
 

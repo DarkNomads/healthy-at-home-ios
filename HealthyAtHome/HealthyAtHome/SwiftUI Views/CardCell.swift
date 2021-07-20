@@ -9,19 +9,42 @@ import UIKit
 
 class CardCell: UITableViewCell {
     
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var unitLabel: UILabel!
-    @IBOutlet weak var hourLabel: UILabel!
-    @IBOutlet weak var circleImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    // Sleep Tracker
+    @IBOutlet weak var cardView_ST: UIView!
+    @IBOutlet weak var unitLabel_ST: UILabel!
+    @IBOutlet weak var hourLabel_ST: UILabel!
+    @IBOutlet weak var titleLabel_ST: UILabel!
+    
+    // Profile
+    @IBOutlet weak var cardView_Pro: UIView!
+    @IBOutlet weak var titleLabel_Pro: UILabel!
+    @IBOutlet weak var data1_Pro: UILabel!
+    @IBOutlet weak var data2_Pro: UILabel!
+    @IBOutlet weak var data3_Pro: UILabel!
+    @IBOutlet weak var data4_Pro: UILabel!
+    @IBOutlet weak var unit1_Pro: UILabel!
+    @IBOutlet weak var unit2_Pro: UILabel!
+    @IBOutlet weak var unit3_Pro: UILabel!
+    @IBOutlet weak var unit4_Pro: UILabel!
     
     
+    // Set up the cell for sleep tracker
+    func configureSleepTracker(title: String, unit: String, hour: String) {
+        titleLabel_ST.text = title
+        unitLabel_ST.text = unit
+        hourLabel_ST.text = hour
+    }
     
-    // set up the cell
-    func configure(picture: UIImage, title: String, unit: String, hour: String) {
-        circleImage.image = picture
-        titleLabel.text = title
-        unitLabel.text = unit
-        hourLabel.text = hour
+    func configureProfile(title: String, data1: String, data2: String, data3: String, data4: String,
+                          unit1: String, unit2: String, unit3: String, unit4: String) {
+        titleLabel_Pro.text = title
+        data1_Pro.text = data1
+        data2_Pro.text = data2
+        data3_Pro.text = data3
+        data4_Pro.text = data4
+        unit1_Pro.text = unit1
+        unit2_Pro.text = unit2
+        unit3_Pro.text = unit3
+        unit4_Pro.text = unit4
     }
 }

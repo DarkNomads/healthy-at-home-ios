@@ -230,7 +230,7 @@ Summary</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="q5U-xu-U8w" kind="relationship" relationship="rootViewController" id="nxD-Xi-HJO"/>
+                        <segue destination="TCM-ga-EyX" kind="relationship" relationship="rootViewController" id="GHl-Mu-8Li"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O2t-xi-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -295,11 +295,10 @@ Summary</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40441779700000002" green="0.39729952439999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="cardView" destination="TEP-6K-hKg" id="rz1-yf-etV"/>
-                                            <outlet property="circleImage" destination="73o-Z9-dQG" id="XjF-yZ-Qw0"/>
-                                            <outlet property="hourLabel" destination="4yS-6w-lWT" id="Onq-zn-tUa"/>
-                                            <outlet property="titleLabel" destination="CBH-yJ-hDH" id="8k3-N3-yw8"/>
-                                            <outlet property="unitLabel" destination="MRa-zy-ftl" id="nRX-YJ-1Oz"/>
+                                            <outlet property="cardView_ST" destination="TEP-6K-hKg" id="P1o-dp-O7U"/>
+                                            <outlet property="hourLabel_ST" destination="4yS-6w-lWT" id="Gmo-Tz-uYs"/>
+                                            <outlet property="titleLabel_ST" destination="CBH-yJ-hDH" id="6cr-XN-Fgg"/>
+                                            <outlet property="unitLabel_ST" destination="4yS-6w-lWT" id="6Hz-qy-lKs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -314,7 +313,7 @@ Summary</string>
                     </view>
                     <navigationItem key="navigationItem" title="Sleep Tracker" id="1iU-Xy-ko8"/>
                     <connections>
-                        <outlet property="CardTableView" destination="JqH-Ky-XYi" id="qmy-g8-ARi"/>
+                        <outlet property="CardTableView" destination="JqH-Ky-XYi" id="0BE-M0-gD5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFD-sX-B1H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -322,26 +321,142 @@ Summary</string>
             <point key="canvasLocation" x="1060.8695652173915" y="2355.1339285714284"/>
         </scene>
         <!--Profile-->
-        <scene sceneID="IOS-Nv-AJC">
+        <scene sceneID="oDU-Vp-hPw">
             <objects>
-                <viewController title="Profile" id="q5U-xu-U8w" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lGS-Jz-DZY">
+                <viewController title="Profile" id="TCM-ga-EyX" customClass="ProfileViewController" customModule="HealthyAtHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vig-QL-Har">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="lNh-Lg-A4H"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="226" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fy-am-cte">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" systemColor="systemPinkColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemPinkColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" rowHeight="226" id="vZD-2R-pqV" customClass="CardCell" customModule="HealthyAtHome" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="226"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vZD-2R-pqV" id="XXi-ie-Np7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-UR-Kht">
+                                                    <rect key="frame" x="21" y="19" width="373" height="187"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle_pink" translatesAutoresizingMaskIntoConstraints="NO" id="BOd-F8-4jF">
+                                                            <rect key="frame" x="12" y="30" width="132" height="127"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titles" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF8-kW-L2Y">
+                                                            <rect key="frame" x="42" y="50" width="73" height="84"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data1" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E5-0v-1JC">
+                                                            <rect key="frame" x="170" y="8" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit1" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djd-ca-2d7">
+                                                            <rect key="frame" x="263" y="8" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit2" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZN-eE-rpL">
+                                                            <rect key="frame" x="263" y="50" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit3" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGS-v8-6mY">
+                                                            <rect key="frame" x="263" y="92" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data2" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzb-Fj-Umf">
+                                                            <rect key="frame" x="170" y="50" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data3" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ix-PE-bCo">
+                                                            <rect key="frame" x="170" y="92" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data4" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpG-GX-s3H">
+                                                            <rect key="frame" x="170" y="137" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit4" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uis-Wd-zVT">
+                                                            <rect key="frame" x="263" y="137" width="102" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <connections>
+                                            <outlet property="cardView_Pro" destination="q6X-UR-Kht" id="dhi-D5-Bg3"/>
+                                            <outlet property="data1_Pro" destination="8E5-0v-1JC" id="zS8-OY-YrM"/>
+                                            <outlet property="data2_Pro" destination="Fzb-Fj-Umf" id="lq1-og-rST"/>
+                                            <outlet property="data3_Pro" destination="4Ix-PE-bCo" id="DEa-9g-mjf"/>
+                                            <outlet property="data4_Pro" destination="mpG-GX-s3H" id="Ygm-Lm-Yu3"/>
+                                            <outlet property="titleLabel_Pro" destination="mF8-kW-L2Y" id="IAk-XR-Zpv"/>
+                                            <outlet property="unit1_Pro" destination="djd-ca-2d7" id="T3J-IV-hJV"/>
+                                            <outlet property="unit2_Pro" destination="3ZN-eE-rpL" id="0d4-MK-fG8"/>
+                                            <outlet property="unit3_Pro" destination="jGS-v8-6mY" id="CWO-uS-Meu"/>
+                                            <outlet property="unit4_Pro" destination="Uis-Wd-zVT" id="57f-cW-ePh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TCM-ga-EyX" id="iwT-vb-2sb"/>
+                                    <outlet property="delegate" destination="TCM-ga-EyX" id="sPx-ba-hZM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xpe-pe-XoB"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="gN7-Tg-2n2"/>
+                    <navigationItem key="navigationItem" title="Profile" id="fAZ-WE-RYb"/>
+                    <connections>
+                        <outlet property="CardTableView" destination="5fy-am-cte" id="eUb-wz-4nS"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mdo-Sv-dCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6RC-oN-52V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="2395"/>
+            <point key="canvasLocation" x="2218.840579710145" y="2355.1339285714284"/>
         </scene>
     </scenes>
     <resources>
         <image name="bed-solid" width="35" height="28"/>
         <image name="book-solid" width="24" height="27"/>
         <image name="circle_indigo" width="300" height="300"/>
+        <image name="circle_pink" width="300" height="300"/>
         <image name="dumbbell-solid" width="35" height="28"/>
         <image name="home-solid" width="32" height="28"/>
         <image name="infocard-template" width="575" height="288"/>

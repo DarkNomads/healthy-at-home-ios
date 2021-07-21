@@ -288,6 +288,13 @@ Summary</string>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idy-t7-pgq">
+                                                            <rect key="frame" x="12" y="28" width="336" height="129"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <connections>
+                                                                <action selector="didTapSleepTrackerButton" destination="xF1-pD-Z9e" eventType="touchUpInside" id="14P-wS-qbK"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                                 </view>
@@ -297,8 +304,9 @@ Summary</string>
                                         <connections>
                                             <outlet property="cardView_ST" destination="TEP-6K-hKg" id="P1o-dp-O7U"/>
                                             <outlet property="hourLabel_ST" destination="4yS-6w-lWT" id="Gmo-Tz-uYs"/>
+                                            <outlet property="sleepTrackerButton" destination="idy-t7-pgq" id="ihO-Vs-akv"/>
                                             <outlet property="titleLabel_ST" destination="CBH-yJ-hDH" id="6cr-XN-Fgg"/>
-                                            <outlet property="unitLabel_ST" destination="4yS-6w-lWT" id="6Hz-qy-lKs"/>
+                                            <outlet property="unitLabel_ST" destination="MRa-zy-ftl" id="yce-Yv-DZb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -413,6 +421,13 @@ Summary</string>
                                                             <color key="textColor" systemColor="systemPinkColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-39-ZkO">
+                                                            <rect key="frame" x="12" y="30" width="353" height="130"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <connections>
+                                                                <action selector="didTapProfileButton" destination="vZD-2R-pqV" eventType="touchUpInside" id="UOs-ce-oWu"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                                 </view>
@@ -420,11 +435,12 @@ Summary</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                                         <connections>
-                                            <outlet property="cardView_Pro" destination="q6X-UR-Kht" id="dhi-D5-Bg3"/>
+                                            <outlet property="cardView_Pro" destination="q6X-UR-Kht" id="HgO-Qt-TQc"/>
                                             <outlet property="data1_Pro" destination="8E5-0v-1JC" id="zS8-OY-YrM"/>
                                             <outlet property="data2_Pro" destination="Fzb-Fj-Umf" id="lq1-og-rST"/>
                                             <outlet property="data3_Pro" destination="4Ix-PE-bCo" id="DEa-9g-mjf"/>
                                             <outlet property="data4_Pro" destination="mpG-GX-s3H" id="Ygm-Lm-Yu3"/>
+                                            <outlet property="profileButton" destination="cMn-39-ZkO" id="FkK-qW-gfO"/>
                                             <outlet property="titleLabel_Pro" destination="mF8-kW-L2Y" id="IAk-XR-Zpv"/>
                                             <outlet property="unit1_Pro" destination="djd-ca-2d7" id="T3J-IV-hJV"/>
                                             <outlet property="unit2_Pro" destination="3ZN-eE-rpL" id="0d4-MK-fG8"/>

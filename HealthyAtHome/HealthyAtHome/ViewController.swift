@@ -32,11 +32,14 @@ class SleepTrackerViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemIndigo
+        
+        CardTableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
+        CardTableView.dataSource = self
     }
     
     // How many rows in the tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return titles_ST.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,6 +49,7 @@ class SleepTrackerViewController: UIViewController, UITableViewDelegate, UITable
         cell.cardView_ST.layer.cornerRadius = 30
         
         cell.configureSleepTracker(title: titles_ST[indexPath.row], unit: unit[indexPath.row], hour: hour[indexPath.row])
+        cell.delegateSleepTracker = self
         return cell
     }
 }
@@ -71,11 +75,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         view.backgroundColor = .systemPink
         
+        CardTableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
+        CardTableView.dataSource = self
+        
     }
     
     // How many rows in the tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return titles_Pro.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,7 +91,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.cardView_Pro.layer.borderColor = UIColor.black.cgColor
         cell.cardView_Pro.layer.cornerRadius = 30
         
+        cell.delegateProfile = self
         cell.configureProfile(title: titles_Pro[indexPath.row], data1: data1[indexPath.row], data2: data2[indexPath.row], data3: data3[indexPath.row], data4: data4[indexPath.row], unit1: unit1[indexPath.row], unit2: unit2[indexPath.row], unit3: unit3[indexPath.row], unit4: unit4[indexPath.row])
+        
         return cell
     }
+    
+}
+
+extension ProfileViewController: ProfileCellDelegate {
+    func didTapProfileButton(with title: String) {
+        print (title)
+    }
+}
+extension SleepTrackerViewController: SleepTrackerCellDelegate {
+    func didTapSleepTrackerButton(with title: String) {
+        print (title)
+    }
+    
 }

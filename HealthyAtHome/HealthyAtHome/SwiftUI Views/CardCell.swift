@@ -7,7 +7,31 @@
 
 import UIKit
 
+protocol ProfileCellDelegate: AnyObject {
+    func didTapProfileButton(with title: String)
+}
+
+protocol SleepTrackerCellDelegate: AnyObject {
+    func didTapSleepTrackerButton(with title: String)
+}
+
+
 class CardCell: UITableViewCell {
+    
+    private var defultTitle: String = ""
+    static let identifier = "CardCell"
+    weak var delegateProfile: ProfileCellDelegate?
+    weak var delegateSleepTracker: SleepTrackerCellDelegate?
+    
+    
+    @IBOutlet weak var profileButton: UIButton!
+    @IBAction func didTapProfileButton() {
+        delegateProfile?.didTapProfileButton(with: defultTitle)
+    }
+    @IBOutlet weak var sleepTrackerButton: UIButton!
+    @IBAction func didTapSleepTrackerButton() {
+        delegateSleepTracker?.didTapSleepTrackerButton(with: defultTitle)
+    }
     
     // Sleep Tracker
     @IBOutlet weak var cardView_ST: UIView!
@@ -30,6 +54,7 @@ class CardCell: UITableViewCell {
     
     // Set up the cell for sleep tracker
     func configureSleepTracker(title: String, unit: String, hour: String) {
+        self.defultTitle = title
         titleLabel_ST.text = title
         unitLabel_ST.text = unit
         hourLabel_ST.text = hour
@@ -37,6 +62,7 @@ class CardCell: UITableViewCell {
     
     func configureProfile(title: String, data1: String, data2: String, data3: String, data4: String,
                           unit1: String, unit2: String, unit3: String, unit4: String) {
+        self.defultTitle = title
         titleLabel_Pro.text = title
         data1_Pro.text = data1
         data2_Pro.text = data2

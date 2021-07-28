@@ -165,18 +165,99 @@ Summary</string>
         <!--Food Diary-->
         <scene sceneID="bAU-Od-vcN">
             <objects>
-                <viewController title="Food Diary" id="aZo-y8-Hsr" sceneMemberID="viewController">
+                <viewController title="Food Diary" id="aZo-y8-Hsr" customClass="FoodDiaryViewController" customModule="HealthyAtHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qgJ-a5-Xiy">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ksa-y1-iDF">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemGreenColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" rowHeight="236" id="glR-cb-aDt" customClass="CardCell" customModule="HealthyAtHome" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="236"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="glR-cb-aDt" id="Pce-AL-CUW">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="236"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfi-gs-nxz">
+                                                    <rect key="frame" x="25" y="25" width="378" height="186"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Circle Green-3" translatesAutoresizingMaskIntoConstraints="NO" id="HHw-Pe-CvO">
+                                                            <rect key="frame" x="8" y="29" width="128" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9m-Ub-4BJ">
+                                                            <rect key="frame" x="42" y="69" width="60" height="49"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQh-EG-XrJ">
+                                                            <rect key="frame" x="305" y="136" width="62" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="User Input Food" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-Y9-0zq">
+                                                            <rect key="frame" x="155" y="29" width="212" height="99"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="textColor" systemColor="labelColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcK-J9-a0Y">
+                                                            <rect key="frame" x="235" y="136" width="62" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jfi-gs-nxz" firstAttribute="top" secondItem="Pce-AL-CUW" secondAttribute="topMargin" constant="14" id="0CF-9Z-Jy5"/>
+                                                <constraint firstItem="Jfi-gs-nxz" firstAttribute="leading" secondItem="Pce-AL-CUW" secondAttribute="leadingMargin" constant="5" id="Jb0-ag-zCq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Jfi-gs-nxz" secondAttribute="bottom" constant="14" id="Myb-vo-c1P"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jfi-gs-nxz" secondAttribute="trailing" constant="5" id="T8g-lg-htK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <connections>
+                                            <outlet property="titleLabel_FD" destination="Q9m-Ub-4BJ" id="4Ya-5F-2D5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aZo-y8-Hsr" id="gZf-2h-KEi"/>
+                                    <outlet property="delegate" destination="aZo-y8-Hsr" id="oT3-Ye-EvR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7iz-JL-6ee"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="Ksa-y1-iDF" firstAttribute="leading" secondItem="7iz-JL-6ee" secondAttribute="leading" id="758-fn-lfs"/>
+                            <constraint firstItem="7iz-JL-6ee" firstAttribute="trailing" secondItem="Ksa-y1-iDF" secondAttribute="trailing" id="Fdd-uO-mHv"/>
+                            <constraint firstItem="Ksa-y1-iDF" firstAttribute="top" secondItem="7iz-JL-6ee" secondAttribute="top" id="LG3-fF-1st"/>
+                            <constraint firstItem="7iz-JL-6ee" firstAttribute="bottom" secondItem="Ksa-y1-iDF" secondAttribute="bottom" id="n0z-gj-6KR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Food Diary" id="ZoN-ip-eip"/>
+                    <connections>
+                        <outlet property="cardTableView" destination="Ksa-y1-iDF" id="qEs-uD-GCQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wn8-id-WZi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="2356"/>
+            <point key="canvasLocation" x="-56.074766355140184" y="2355.9395248380133"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="dM6-iG-VJz">
@@ -580,6 +661,7 @@ Summary</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Circle Green-3" width="150" height="143"/>
         <image name="bed-solid" width="35" height="28"/>
         <image name="book-solid" width="24" height="27"/>
         <image name="circle_indigo" width="300" height="300"/>

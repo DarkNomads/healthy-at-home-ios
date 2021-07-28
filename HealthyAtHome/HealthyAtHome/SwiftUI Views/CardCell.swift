@@ -71,6 +71,9 @@ class CardCell: UITableViewCell {
     @IBOutlet weak var unit3_Pro: UILabel!
     @IBOutlet weak var unit4_Pro: UILabel!
     
+    // Food Diary
+    
+    @IBOutlet weak var titleLabel_FD: UILabel!
     // Todo:
             // implement elements for
                 // 1. Home Page
@@ -99,6 +102,9 @@ class CardCell: UITableViewCell {
         unit4_Pro.text = unit4
     }
     
+    func configureFDTest(title: String) {
+        titleLabel_FD.text = title
+    }
     // Todo:
         // Add configuration for
             // 1. Home Page

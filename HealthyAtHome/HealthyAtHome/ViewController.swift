@@ -63,6 +63,32 @@ class SleepTrackerViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
 }
+// Food Diary
+class FoodDiaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var cardTableView: UITableView!
+    
+    let titles_fd: [String] = ["Food Summary", "Breakfast", "Lunch", "Dinner", "Snack"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        cardTableView.isHidden = true
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles_fd.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
+        
+        
+        cell.configureFDTest(title: titles_fd[indexPath.row])
+        
+        return UITableViewCell()
+    }
+}
+
 
 // Profile -----------------------------------------------------------------------------------------------------------------------------
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftUI
-//import SwiftUICharts
 
 //Defult ViewController
 class ViewController: UIViewController {
@@ -17,67 +16,200 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 }
-// Todo:
-    // Add View Controller for (if necessary)
-        // 1. Home Page
-        // 2. Food diary
-        // 3. Workout
-
 
 // Sleep Tracker -----------------------------------------------------------------------------------------------------------------------------
-class SleepTrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SleepTrackerViewController: UIViewController {
     
-    // Link to Card View
-    @IBOutlet weak var CardTableView: UITableView!
+    var flag: Bool = false
     
-    // Some Testing Data
-    let titles_ST: [String] = ["Sleep Data", "Sleep Goal", "Weekly Average", "Wake Up Goal", "Recommended Bedtime"]
-    let unit: [String] = ["Hours","Hours","Hours","am","pm"]
-    let hour: [String] = ["0","0","0","0","0"]
+    @IBOutlet weak var sleepHourLb: UILabel!
+    @IBOutlet weak var sleepMinuteLb: UILabel!
+    
+    var dataCount = 0
+    @IBOutlet weak var averageHourLb: UILabel!
+    var totalHour: Int = 0
+    @IBOutlet weak var averageMinuteLb: UILabel!
+    var totalMinute: Int = 0
+    
+    @IBOutlet weak var wakeUpTimeLb: UILabel!
+    @IBOutlet weak var bedTimeLb: UILabel!
+    
+    var sleepData: [Float] = []
     
     // Running the View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemIndigo
-        
-        // Register to recognize which View is using, in this case using Sleep Tracker page
-        CardTableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
-        CardTableView.dataSource = self
     }
     
-    // How many rows in the card view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles_ST.count
+    @IBAction func didTapChartButton(_ sender: Any) {
+        guard let chartViewCtl = storyboard?.instantiateViewController(identifier: "chart") as? SleepTrackerChartViewController else {
+            print("Failed to get chart ViewController from storyboard")
+            return
+        }
+        
+        present(chartViewCtl, animated: true)
     }
     
-    // Add defult data into the cell, and change cell format
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
-        cell.cardView_ST.layer.borderWidth = 1
-        cell.cardView_ST.layer.borderColor = UIColor.black.cgColor
-        cell.cardView_ST.layer.cornerRadius = 30
+    
+    // Button Weekly Average
+    @IBAction func didTapAverageButton(_ sender: Any) {
+        var catcher: String = ""
         
-        cell.delegateSleepTracker = self
-        cell.configureSleepTracker(title: titles_ST[indexPath.row], unit: unit[indexPath.row], hour: hour[indexPath.row])
+        guard let settingViewCtl = storyboard?.instantiateViewController(identifier: "sleepSetting") as? SleepTrackerSettingViewController else {
+            print("Failed to get chart ViewController from storyboard")
+            return
+        }
+        settingViewCtl.sleepDataHourHandler = { text in
+            self.sleepHourLb.text = text
+        }
+        settingViewCtl.sleepDataMinuteHandler = { text in
+            self.sleepMinuteLb.text = text
+        }
+        settingViewCtl.wakeUpHandler = { text in
+            self.wakeUpTimeLb.text = text
+        }
+        settingViewCtl.bedTimeHandler = { text in
+            self.bedTimeLb.text = text
+        }
+        settingViewCtl.thrower = { text in
+            catcher = text ?? "F"
+            if (text == "T"){
+                self.flag = true
+            } else {
+                self.flag = false
+            }
+        }
         
-        return cell
+        // If user did edit
+        if (self.flag) {
+            // Hour and Minute
+            var tempF: Float = 0.0
+            var tempI: Int = 0
+            var tempS: String = sleepHourLb.text!
+            
+            // Hour calculation
+            tempF = Float(tempS) ?? 0.0
+            tempI = Int(tempS) ?? 0
+            totalHour = totalHour + tempI
+            print("DataCount: ", dataCount)
+            print("String: ",tempS)
+            print("TotalHout: ", totalHour)
+            print("TotalMinute: ", totalMinute)
+            
+            // Minute calculation
+            tempS = sleepMinuteLb.text!
+            tempF = tempF + (Float(tempS) ?? 0) / 60
+            tempI = Int(tempS) ?? 0
+            totalMinute = totalMinute + tempI
+            print("String: ",tempS)
+            print("TotalHout: ", totalHour)
+            print("TotalMinute: ", totalMinute)
+            
+            // Data add to the queue for graph
+            dataCount += 1
+            if(dataCount > 0) {
+                averageHourLb.text = String(totalHour/(dataCount))
+                averageMinuteLb.text = String(totalMinute/(dataCount))
+                sleepData.append(tempF)
+            }
+            
+        }
+        flag = false
+        present(settingViewCtl, animated: true)
+    }
+    
+    
+    
+    @IBAction func didTapGoal(_ sender: Any) {
+        // same as button above
     }
 }
+// Food Diary
+//class FoodDiaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+//
+//    @IBOutlet weak var cardTableView: UITableView!
+//
+//    let titles_fd: [String] = ["Food Summary", "Breakfast", "Lunch", "Dinner", "Snack"]
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        cardTableView.isHidden = true
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return titles_fd.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
+//
+//
+//        cell.configureFDTest(title: titles_fd[indexPath.row])
+//
+//        return UITableViewCell()
+//    }
+//}
+
+
 
 // Profile -----------------------------------------------------------------------------------------------------------------------------
 class ProfileViewController: UIViewController{
+    
+    @IBOutlet weak var nameLb: UILabel!
+    @IBOutlet weak var heightLb: UILabel!
+    @IBOutlet weak var weightLb: UILabel!
+    @IBOutlet weak var weightGoalLb: UILabel!
+    @IBOutlet weak var workoutGoalLb: UILabel!
+    @IBOutlet weak var weeklyWeighInLb: UILabel!
+    @IBOutlet weak var sleepGoalLb: UILabel!
 
     // Running the View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
     }
-}
-
-// Control each individual cell in Sleep Tracker page
-extension SleepTrackerViewController: SleepTrackerCellDelegate {
-    func didTapSleepTrackerButton(with title: String) {
-        print (title)
-    }
     
+    @IBAction func editProfile(_ sender: Any) {
+        let pvc = storyboard?.instantiateViewController(identifier: "ppe_vc") as! ProfileEditorViewController
+        pvc.modalPresentationStyle = .fullScreen
+        
+        pvc.nameHandler = {text in
+            if (text != ""){
+                self.nameLb.text = text
+            }
+        }
+        pvc.heightHandler = {text in
+            if (text != "'"){
+                self.heightLb.text = text
+            }
+        }
+        pvc.weightHandler = {text in
+            if (text != ""){
+                self.weightLb.text = text
+            }
+        }
+        pvc.weightGoalHandler = {text in
+            if (text != ""){
+                self.weightGoalLb.text = text
+            }
+        }
+        pvc.workoutGoalHandler = {text in
+            if (text != ""){
+                self.workoutGoalLb.text = text
+            }
+        }
+        pvc.weighInDayHandler = {text in
+            if (text != ""){
+                self.weeklyWeighInLb.text = text
+            }
+        }
+        pvc.sleepGoalHandler = {text in
+            if (text != ""){
+                self.sleepGoalLb.text = text
+            }
+        }
+        
+        present(pvc, animated: true)
+    }
 }

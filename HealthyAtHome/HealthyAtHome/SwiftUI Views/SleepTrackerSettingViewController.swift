@@ -18,15 +18,9 @@ class SleepTrackerSettingViewController: UIViewController {
     @IBOutlet weak var bedTime: UITextField!
     @IBOutlet weak var setBedButton: UIButton!
     
-    
-    public var sleepDataHourHandler:((String?) -> Void)?
-    public var sleepDataMinuteHandler:((String?) -> Void)?
     public var wakeUpHandler:((String?) -> Void)?
     public var bedTimeHandler:((String?) -> Void)?
-    public var thrower:((String?) -> Void)?
     
-    //public var passSleepDataHandler:((Int?) -> Void)?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,96 +50,97 @@ class SleepTrackerSettingViewController: UIViewController {
     
     func showAlert(titleInput: String, messageInput: String){
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: {action in
+        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {action in
             print("Tapped Dismiss")
         }))
-        present(alert, animated: true)
+        present(alert, animated: true, completion: nil)
     }
 
     @IBAction func didTapSetSleepDataButton(_ sender: Any) {
+
+        var sleepDataTemp: Double = 0
+        var tempHours: Int = 0
+        var tempMinutes: Int = 0
+        var checkPointHour: Bool = true
+        var checkPointMinute: Bool = true
+        
         // Input check
-        var flag: Bool = true
-        var counterFlag1: Bool = true
-        var counterFlag2: Bool = true
         if (sleepHours.hasText) {
             let tempH:Int? = Int(sleepHours.text!)
+            tempHours = tempH!
             if (tempH! > 23 || tempH! < 0){
                 showAlert(titleInput: "Incorrect Hour", messageInput: "The Hour input is too large or too small")
-                flag = false
+                checkPointHour = false
             } else {
-                flag = true
-                counterFlag1 = true
+                globalSleepDataHours = sleepHours.text
+                checkPointHour = true
             }
         } else {
-            sleepDataMinuteHandler?("0")
-            counterFlag1 = false
+            tempHours = 0
+            checkPointHour = true
         }
         if (sleepMinutes.hasText) {
             let tempM:Int? = Int(sleepMinutes.text!)
+            tempMinutes = tempM!
             if(tempM! > 59 || tempM! < 0) {
                 showAlert(titleInput: "Incorrect Minute", messageInput: "Minute input is too large or too small")
-                flag = false
+                checkPointMinute = false
             } else {
-                flag = true
-                counterFlag2 = true
+                globalSleepDataMinutes = sleepMinutes.text
+                checkPointMinute = true
             }
         } else {
-            sleepDataMinuteHandler?("0")
-            counterFlag2 = false
+            tempMinutes = 0
+            checkPointMinute = true
         }
-        
-        if (flag){
-            sleepDataHourHandler?(sleepHours.text)
-            sleepDataMinuteHandler?(sleepMinutes.text)
-            if (counterFlag1 || counterFlag2){
-                thrower?("T")
-            }
+        if (tempHours == 0 && tempMinutes == 0) {
             dismiss(animated: true, completion: nil)
         } else {
-            thrower?("F")
+            if (checkPointHour && checkPointMinute){
+                sleepDataTemp = Double(tempHours) + (Double(tempMinutes) / 60)
+                globalSleepData.append(sleepDataTemp)
+                globalWeeklyAverageHours.append(tempHours)
+                globalWeeklyAverageMinutes.append(tempMinutes)
+                dismiss(animated: true, completion: nil)
+            }
         }
     }
             
             
     @IBAction func didTapSetWakeButton(_ sender: Any) {
         // Input check
-        var flag: Bool = true
         if (wakeUp.hasText) {
             let temp:Int? = Int(wakeUp.text!)
             if (temp! > 12 || temp! < 0){
                 showAlert(titleInput: "Incorrect Time", messageInput: "The Time input is too large or too small")
-                flag = false
             } else {
-                flag = true
+                globalWakeUpTime = wakeUp.text
+                dismiss(animated: true, completion: nil)
             }
         } else {
-            wakeUpHandler?("0")
-        }
-        if (flag) {
-            wakeUpHandler?(wakeUp.text!)
+            globalWakeUpTime = "0"
             dismiss(animated: true, completion: nil)
         }
+        wakeUpHandler?(wakeUp.text!)
     }
     @IBAction func didTapSetBedButton(_ sender: Any) {
         // Input check
-        var flag: Bool = true
         if (bedTime.hasText) {
             let temp:Int? = Int(bedTime.text!)
             if (temp! > 12 || temp! < 0){
                 showAlert(titleInput: "Incorrect Time", messageInput: "The Time input is too large or too small")
-                flag = false
             } else {
-                flag = true
+                globalBedTime = bedTime.text
+                dismiss(animated: true, completion: nil)
             }
         } else {
-            bedTimeHandler?("0")
-        }
-        if (flag) {
-            bedTimeHandler?(bedTime.text!)
+            globalBedTime = "0"
             dismiss(animated: true, completion: nil)
         }
+        bedTimeHandler?(bedTime.text!)
     }
     
+    // Override function to dismiss number pad
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         sleepHours.resignFirstResponder()
         sleepMinutes.resignFirstResponder()
@@ -156,7 +151,7 @@ class SleepTrackerSettingViewController: UIViewController {
 }
 
 
-
+// call keyboard
 extension SleepTrackerSettingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

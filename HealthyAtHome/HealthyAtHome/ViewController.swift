@@ -8,6 +8,37 @@
 import UIKit
 import SwiftUI
 
+// Public variables shared between View Controllers
+
+// Sleep Tracker
+public var globalSleepData: [Double] = []
+public var globalSleepDataHours: String? = "0"
+public var globalSleepDataMinutes: String? = "0"
+public var globalWeeklyAverageHours: [Int] = []
+public var globalWeeklyAverageMinutes: [Int] = []
+public var globalWeeklyAverageHoursDisplay: String? = "0"
+public var globalWeeklyAverageMinutesDisplay: String? = "0"
+public var globalWakeUpTime: String? = "0"
+public var globalBedTime: String? = "0"
+
+// Global Functions
+// See if an array[Int] is empty, return true if empty
+public func arrayIntIsEmpty(input: [Int?]) -> Bool {
+    if (input.count  <= 0){
+        return true
+    } else {
+        return false
+    }
+}
+// See if an array[Double] is empty, return true if empty
+public func arrayDoubleIsEmpty(input: [Double?]) -> Bool {
+    if (input.count  <= 0){
+        return true
+    } else {
+        return false
+    }
+}
+
 //Defult ViewController
 class ViewController: UIViewController {
 
@@ -20,22 +51,13 @@ class ViewController: UIViewController {
 // Sleep Tracker -----------------------------------------------------------------------------------------------------------------------------
 class SleepTrackerViewController: UIViewController {
     
-    var flag: Bool = false
-    
     @IBOutlet weak var sleepHourLb: UILabel!
     @IBOutlet weak var sleepMinuteLb: UILabel!
-    
-    var dataCount = 0
     @IBOutlet weak var averageHourLb: UILabel!
-    var totalHour: Int = 0
     @IBOutlet weak var averageMinuteLb: UILabel!
-    var totalMinute: Int = 0
-    
     @IBOutlet weak var wakeUpTimeLb: UILabel!
     @IBOutlet weak var bedTimeLb: UILabel!
-    
-    var sleepData: [Float] = []
-    
+
     // Running the View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,71 +76,41 @@ class SleepTrackerViewController: UIViewController {
     
     // Button Weekly Average
     @IBAction func didTapAverageButton(_ sender: Any) {
-        var catcher: String = ""
-        
         guard let settingViewCtl = storyboard?.instantiateViewController(identifier: "sleepSetting") as? SleepTrackerSettingViewController else {
             print("Failed to get chart ViewController from storyboard")
             return
         }
-        settingViewCtl.sleepDataHourHandler = { text in
-            self.sleepHourLb.text = text
-        }
-        settingViewCtl.sleepDataMinuteHandler = { text in
-            self.sleepMinuteLb.text = text
-        }
+        
+        // Set wake up and bed time
         settingViewCtl.wakeUpHandler = { text in
             self.wakeUpTimeLb.text = text
+            
         }
         settingViewCtl.bedTimeHandler = { text in
             self.bedTimeLb.text = text
         }
-        settingViewCtl.thrower = { text in
-            catcher = text ?? "F"
-            if (text == "T"){
-                self.flag = true
-            } else {
-                self.flag = false
-            }
-        }
         
-        // If user did edit
-        if (self.flag) {
-            // Hour and Minute
-            var tempF: Float = 0.0
-            var tempI: Int = 0
-            var tempS: String = sleepHourLb.text!
-            
-            // Hour calculation
-            tempF = Float(tempS) ?? 0.0
-            tempI = Int(tempS) ?? 0
-            totalHour = totalHour + tempI
-            print("DataCount: ", dataCount)
-            print("String: ",tempS)
-            print("TotalHout: ", totalHour)
-            print("TotalMinute: ", totalMinute)
-            
-            // Minute calculation
-            tempS = sleepMinuteLb.text!
-            tempF = tempF + (Float(tempS) ?? 0) / 60
-            tempI = Int(tempS) ?? 0
-            totalMinute = totalMinute + tempI
-            print("String: ",tempS)
-            print("TotalHout: ", totalHour)
-            print("TotalMinute: ", totalMinute)
-            
-            // Data add to the queue for graph
-            dataCount += 1
-            if(dataCount > 0) {
-                averageHourLb.text = String(totalHour/(dataCount))
-                averageMinuteLb.text = String(totalMinute/(dataCount))
-                sleepData.append(tempF)
-            }
-            
+        // If data exist
+        if (!arrayIntIsEmpty(input: globalWeeklyAverageHours)){
+            var hour: Int = 0
+            var minute: Int = 0
+            let tempValue: Double = globalSleepData.reduce(0, +) / Double(globalSleepData.count)
+            print ("Temp: ", tempValue) // debug
+            hour = Int(tempValue)
+            minute = Int((tempValue - Double(Int(tempValue))) * 60)
+            averageHourLb.text = String(hour)
+            averageMinuteLb.text = String(minute)
         }
-        flag = false
         present(settingViewCtl, animated: true)
+        
+        // debug section
+        print ("Sleep data array: ", globalSleepData)
+        print ("Average hour: ", globalWeeklyAverageHours)
+        print ("Average minute: ", globalWeeklyAverageMinutes)
+        print ("Wake up: ", globalWakeUpTime!)
+        print ("Bed Time: ", globalBedTime!)
+        
     }
-    
     
     
     @IBAction func didTapGoal(_ sender: Any) {
@@ -126,30 +118,7 @@ class SleepTrackerViewController: UIViewController {
     }
 }
 // Food Diary
-//class FoodDiaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-//
-//    @IBOutlet weak var cardTableView: UITableView!
-//
-//    let titles_fd: [String] = ["Food Summary", "Breakfast", "Lunch", "Dinner", "Snack"]
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        cardTableView.isHidden = true
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return titles_fd.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
-//
-//
-//        cell.configureFDTest(title: titles_fd[indexPath.row])
-//
-//        return UITableViewCell()
-//    }
-//}
+
 
 
 

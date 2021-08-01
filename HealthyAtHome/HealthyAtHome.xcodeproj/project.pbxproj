@@ -15,6 +15,7 @@
 		177405A22694E1DD001DD069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177405A02694E1DD001DD069 /* LaunchScreen.storyboard */; };
 		177405AD2694E1DD001DD069 /* HealthyAtHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177405AC2694E1DD001DD069 /* HealthyAtHomeTests.swift */; };
 		177405B82694E1DE001DD069 /* HealthyAtHomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177405B72694E1DE001DD069 /* HealthyAtHomeUITests.swift */; };
+		177967D626B32BB700017B86 /* ProfileEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177967D526B32BB700017B86 /* ProfileEditorViewController.swift */; };
 		2C21BE6E26B09AB1000C15B7 /* SleepTrackerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C21BE6D26B09AB1000C15B7 /* SleepTrackerSettingViewController.swift */; };
 		2C21BE7026B09BD3000C15B7 /* SleepTrackerChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C21BE6F26B09BD3000C15B7 /* SleepTrackerChartViewController.swift */; };
 		2C8FCBE026B5D026008DFB13 /* FoodDiaryFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FCBDF26B5D026008DFB13 /* FoodDiaryFoodViewController.swift */; };
@@ -57,6 +58,7 @@
 		177405B32694E1DD001DD069 /* HealthyAtHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthyAtHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		177405B72694E1DE001DD069 /* HealthyAtHomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyAtHomeUITests.swift; sourceTree = "<group>"; };
 		177405B92694E1DE001DD069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		177967D526B32BB700017B86 /* ProfileEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorViewController.swift; sourceTree = "<group>"; };
 		2C21BE6D26B09AB1000C15B7 /* SleepTrackerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTrackerSettingViewController.swift; sourceTree = "<group>"; };
 		2C21BE6F26B09BD3000C15B7 /* SleepTrackerChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTrackerChartViewController.swift; sourceTree = "<group>"; };
 		2C8FCBDF26B5D026008DFB13 /* FoodDiaryFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiaryFoodViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				2C21BE6F26B09BD3000C15B7 /* SleepTrackerChartViewController.swift */,
 				2C8FCBDF26B5D026008DFB13 /* FoodDiaryFoodViewController.swift */,
 				2C8FCBE126B5E031008DFB13 /* FoodDiaryMealViewController.swift */,
+				177967D526B32BB700017B86 /* ProfileEditorViewController.swift */,
 			);
 			path = "SwiftUI Views";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				1774059A2694E1DC001DD069 /* ViewController.swift in Sources */,
 				9679CD2926A5DD0E00362A37 /* ExerciseTracker.swift in Sources */,
 				2CBD6C2526A21B5800061683 /* SleepTrackerChart.swift in Sources */,
+				177967D626B32BB700017B86 /* ProfileEditorViewController.swift in Sources */,
 				177405962694E1DC001DD069 /* AppDelegate.swift in Sources */,
 				2C21BE6E26B09AB1000C15B7 /* SleepTrackerSettingViewController.swift in Sources */,
 				965B965B26A7CE0200F87E6D /* CircularCheckbox.swift in Sources */,

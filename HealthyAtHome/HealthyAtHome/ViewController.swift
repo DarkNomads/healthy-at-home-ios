@@ -238,10 +238,60 @@ class SleepTrackerViewController: UIViewController {
 
 // Profile -----------------------------------------------------------------------------------------------------------------------------
 class ProfileViewController: UIViewController{
+    
+    @IBOutlet weak var nameLb: UILabel!
+    @IBOutlet weak var heightLb: UILabel!
+    @IBOutlet weak var weightLb: UILabel!
+    @IBOutlet weak var weightGoalLb: UILabel!
+    @IBOutlet weak var workoutGoalLb: UILabel!
+    @IBOutlet weak var weeklyWeighInLb: UILabel!
+    @IBOutlet weak var sleepGoalLb: UILabel!
 
     // Running the View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
+    }
+    @IBAction func editProfile(_ sender: Any) {
+        let pvc = storyboard?.instantiateViewController(identifier: "ppe_vc") as! ProfileEditorViewController
+        pvc.modalPresentationStyle = .fullScreen
+        
+        pvc.nameHandler = {text in
+            if (text != ""){
+                self.nameLb.text = text
+            }
+        }
+        pvc.heightHandler = {text in
+            if (text != "'"){
+                self.heightLb.text = text
+            }
+        }
+        pvc.weightHandler = {text in
+            if (text != ""){
+                self.weightLb.text = text
+            }
+        }
+        pvc.weightGoalHandler = {text in
+            if (text != ""){
+                self.weightGoalLb.text = text
+            }
+        }
+        pvc.workoutGoalHandler = {text in
+            if (text != ""){
+                self.workoutGoalLb.text = text
+            }
+        }
+        pvc.weighInDayHandler = {text in
+            if (text != ""){
+                self.weeklyWeighInLb.text = text
+            }
+        }
+        pvc.sleepGoalHandler = {text in
+            if (text != ""){
+                self.sleepGoalLb.text = text
+            }
+        }
+        
+        present(pvc, animated: true)
     }
 }

@@ -169,7 +169,6 @@ class ProfileViewController: UIViewController{
         super.viewDidLoad()
         view.backgroundColor = .systemRed
     }
-    
     @IBAction func editProfile(_ sender: Any) {
         let pvc = storyboard?.instantiateViewController(identifier: "ppe_vc") as! ProfileEditorViewController
         pvc.modalPresentationStyle = .fullScreen

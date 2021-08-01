@@ -18,6 +18,12 @@ class SleepTrackerSettingViewController: UIViewController {
     @IBOutlet weak var bedTime: UITextField!
     @IBOutlet weak var setBedButton: UIButton!
     
+    @IBOutlet weak var resetButton: UIButton!
+    
+    public var hourHandlder:((String?) -> Void)?
+    public var minuteHandler:((String?) -> Void)?
+    public var averageHourHandler:((String?) -> Void)?
+    public var averageMinuteHandler:((String?) -> Void)?
     public var wakeUpHandler:((String?) -> Void)?
     public var bedTimeHandler:((String?) -> Void)?
     
@@ -37,8 +43,10 @@ class SleepTrackerSettingViewController: UIViewController {
         setSleepButton.layer.cornerRadius = 10
         setWakeButton.layer.cornerRadius = 10
         setBedButton.layer.cornerRadius = 10
+        resetButton.layer.cornerRadius = 10
         
     }
+    // Limit only input two characters in text box
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else{
@@ -48,6 +56,7 @@ class SleepTrackerSettingViewController: UIViewController {
         return updateText.count < 3
     }
     
+    // Input warning
     func showAlert(titleInput: String, messageInput: String){
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {action in
@@ -101,6 +110,14 @@ class SleepTrackerSettingViewController: UIViewController {
                 globalSleepData.append(sleepDataTemp)
                 globalWeeklyAverageHours.append(tempHours)
                 globalWeeklyAverageMinutes.append(tempMinutes)
+                hourHandlder?(String(tempHours))
+                minuteHandler?(String(tempMinutes))
+                
+                let tempValue: Double = globalSleepData.reduce(0, +) / Double(globalSleepData.count)
+                print ("Temp: ", tempValue) // debug
+                averageHourHandler?(String(Int(tempValue)))
+                averageMinuteHandler?(String(Int((tempValue - Double(Int(tempValue))) * 60)))
+                
                 dismiss(animated: true, completion: nil)
             }
         }
@@ -115,13 +132,14 @@ class SleepTrackerSettingViewController: UIViewController {
                 showAlert(titleInput: "Incorrect Time", messageInput: "The Time input is too large or too small")
             } else {
                 globalWakeUpTime = wakeUp.text
+                wakeUpHandler?(wakeUp.text!)
                 dismiss(animated: true, completion: nil)
             }
         } else {
             globalWakeUpTime = "0"
+            wakeUpHandler?("0")
             dismiss(animated: true, completion: nil)
         }
-        wakeUpHandler?(wakeUp.text!)
     }
     @IBAction func didTapSetBedButton(_ sender: Any) {
         // Input check
@@ -131,13 +149,14 @@ class SleepTrackerSettingViewController: UIViewController {
                 showAlert(titleInput: "Incorrect Time", messageInput: "The Time input is too large or too small")
             } else {
                 globalBedTime = bedTime.text
+                bedTimeHandler?(bedTime.text!)
                 dismiss(animated: true, completion: nil)
             }
         } else {
             globalBedTime = "0"
+            bedTimeHandler?("0")
             dismiss(animated: true, completion: nil)
         }
-        bedTimeHandler?(bedTime.text!)
     }
     
     // Override function to dismiss number pad
@@ -148,6 +167,25 @@ class SleepTrackerSettingViewController: UIViewController {
         bedTime.resignFirstResponder()
     }
     
+    // Reset button
+    @IBAction func didTapResetButton(_ sender: Any) {
+        globalSleepData.removeAll()
+        globalSleepDataHours = "0"
+        globalSleepDataMinutes = "0"
+        globalWeeklyAverageHours.removeAll()
+        globalWeeklyAverageMinutes.removeAll()
+        globalWeeklyAverageHoursDisplay = "0"
+        globalWeeklyAverageMinutesDisplay = "0"
+        globalWakeUpTime = "0"
+        globalBedTime = "0"
+        hourHandlder?("0")
+        minuteHandler?("0")
+        averageHourHandler?("0")
+        averageMinuteHandler?("0")
+        wakeUpHandler?("0")
+        bedTimeHandler?("0")
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 

@@ -48,6 +48,29 @@ class ViewController: UIViewController {
     }
 }
 
+// Home-----------------------------------------------------------------------------------------------------------------------------
+
+class HomePageViewController: UIViewController {
+    
+    @IBOutlet weak var calorieRemainLb: UILabel!
+    @IBOutlet weak var averageSleepLb: UILabel!
+    
+    @IBOutlet weak var refreshButton: UIButton!
+    
+    // Running the View Controller
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        refreshButton.layer.cornerRadius = 10
+    }
+    
+    @IBAction func didTapRefreshButton(_ sender: Any) {
+        calorieRemainLb.text = globalCalRemain
+        averageSleepLb.text = String(format: "%.2f", globalSleepData.reduce(0, +) / Double(globalSleepData.count))
+    }
+}
+
+
+
 // Food Diary -----------------------------------------------------------------------------------------------------------------------------
 
 class FoodDiaryViewController: UIViewController{

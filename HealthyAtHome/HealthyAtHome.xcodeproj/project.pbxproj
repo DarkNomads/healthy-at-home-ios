@@ -18,6 +18,7 @@
 		177967D626B32BB700017B86 /* ProfileEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177967D526B32BB700017B86 /* ProfileEditorViewController.swift */; };
 		2C21BE6E26B09AB1000C15B7 /* SleepTrackerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C21BE6D26B09AB1000C15B7 /* SleepTrackerSettingViewController.swift */; };
 		2C21BE7026B09BD3000C15B7 /* SleepTrackerChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C21BE6F26B09BD3000C15B7 /* SleepTrackerChartViewController.swift */; };
+		2C5F3B8826B7335500368934 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F3B8726B7335500368934 /* HomeViewController.swift */; };
 		2C8FCBE026B5D026008DFB13 /* FoodDiaryFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FCBDF26B5D026008DFB13 /* FoodDiaryFoodViewController.swift */; };
 		2C8FCBE226B5E031008DFB13 /* FoodDiaryMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FCBE126B5E031008DFB13 /* FoodDiaryMealViewController.swift */; };
 		2CBD6C2026A1FEC700061683 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 2CBD6C1F26A1FEC700061683 /* SwiftUICharts */; };
@@ -61,6 +62,7 @@
 		177967D526B32BB700017B86 /* ProfileEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorViewController.swift; sourceTree = "<group>"; };
 		2C21BE6D26B09AB1000C15B7 /* SleepTrackerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTrackerSettingViewController.swift; sourceTree = "<group>"; };
 		2C21BE6F26B09BD3000C15B7 /* SleepTrackerChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTrackerChartViewController.swift; sourceTree = "<group>"; };
+		2C5F3B8726B7335500368934 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2C8FCBDF26B5D026008DFB13 /* FoodDiaryFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiaryFoodViewController.swift; sourceTree = "<group>"; };
 		2C8FCBE126B5E031008DFB13 /* FoodDiaryMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiaryMealViewController.swift; sourceTree = "<group>"; };
 		2CBD6C2426A21B5800061683 /* SleepTrackerChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTrackerChart.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				2C8FCBDF26B5D026008DFB13 /* FoodDiaryFoodViewController.swift */,
 				2C8FCBE126B5E031008DFB13 /* FoodDiaryMealViewController.swift */,
 				177967D526B32BB700017B86 /* ProfileEditorViewController.swift */,
+				2C5F3B8726B7335500368934 /* HomeViewController.swift */,
 			);
 			path = "SwiftUI Views";
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				2C8FCBE226B5E031008DFB13 /* FoodDiaryMealViewController.swift in Sources */,
 				177405982694E1DC001DD069 /* SceneDelegate.swift in Sources */,
 				2C8FCBE026B5D026008DFB13 /* FoodDiaryFoodViewController.swift in Sources */,
+				2C5F3B8826B7335500368934 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

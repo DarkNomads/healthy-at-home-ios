@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Infocard Template green.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

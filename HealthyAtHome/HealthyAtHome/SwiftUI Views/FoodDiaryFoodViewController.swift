@@ -35,6 +35,7 @@ class FoodDiaryFoodViewController: UIViewController {
         calorie.layer.cornerRadius = 10
         setFoodButton.layer.cornerRadius = 10
         setCalorieGoalButton.layer.cornerRadius = 10
+        setWaterButton.layer.cornerRadius = 10
         resetButton.layer.cornerRadius = 10
     }
     

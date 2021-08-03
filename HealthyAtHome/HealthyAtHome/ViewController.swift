@@ -180,12 +180,43 @@ class SleepTrackerViewController: UIViewController {
     }
     
     @IBAction func didTapChartButton(_ sender: Any) {
-        guard let chartViewCtl = storyboard?.instantiateViewController(identifier: "chart") as? SleepTrackerChartViewController else {
-            print ("Failed to get chart ViewController from storyboard")
+        guard let settingViewCtl = storyboard?.instantiateViewController(identifier: "sleepSetting") as? SleepTrackerSettingViewController else {
+            print("Failed to get chart ViewController from storyboard")
             return
         }
-        // chart goes here
-        present(chartViewCtl, animated: true)
+        // Set wake up and bed time
+        settingViewCtl.hourHandlder = { text in
+            self.sleepHourLb.text = text
+        }
+        settingViewCtl.minuteHandler = { text in
+            self.sleepMinuteLb.text = text
+        }
+        settingViewCtl.wakeUpHandler = { text in
+            self.wakeUpTimeLb.text = text
+        }
+        settingViewCtl.bedTimeHandler = { text in
+            self.bedTimeLb.text = text
+        }
+        settingViewCtl.averageHourHandler = { text in
+            self.averageHourLb.text = text
+        }
+        settingViewCtl.averageMinuteHandler = { text in
+            self.averageMinuteLb.text = text
+        }
+        present(settingViewCtl, animated: true)
+        
+        // debug section
+        print ("Sleep data array: ", globalSleepData)
+        print ("Average hour: ", globalWeeklyAverageHours)
+        print ("Average minute: ", globalWeeklyAverageMinutes)
+        print ("Wake up: ", globalWakeUpTime!)
+        print ("Bed Time: ", globalBedTime!)
+//        guard let chartViewCtl = storyboard?.instantiateViewController(identifier: "chart") as? SleepTrackerChartViewController else {
+//            print ("Failed to get chart ViewController from storyboard")
+//            return
+//        }
+//        // chart goes here
+//        present(chartViewCtl, animated: true)
     }
     
     // Button Weekly Average

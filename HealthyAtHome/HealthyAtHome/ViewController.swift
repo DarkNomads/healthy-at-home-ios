@@ -290,6 +290,57 @@ class SleepTrackerViewController: UIViewController {
     }
 }
 
+class WorkoutTrackerViewController: UIViewController{
+    
+    @IBOutlet weak var warmupMinGoal: UILabel!
+    @IBOutlet weak var warmupMinRemaining: UILabel!
+    @IBOutlet weak var workoutCalGoal: UILabel!
+    @IBOutlet weak var workoutCalRemaining: UILabel!
+    @IBOutlet weak var cooldownMinGoal: UILabel!
+    @IBOutlet weak var cooldownMinRemaining: UILabel!
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemOrange
+    }
+    
+    // When Warmup button tapped (Button 1)
+    // Goes to editor
+    @IBAction func didTapWarmup(_ sender: Any) {
+        guard let workoutViewCtl = storyboard?.instantiateViewController(identifier: "workoutSetting") as? WorkoutViewController else {print("Failed to get workout view controller from storyboard")
+            return
+        }
+        present(workoutViewCtl, animated: true, completion: nil)
+    }
+    
+    // When workout button tapped (Button 2)
+    // Goes to editor
+    @IBAction func didTapWorkout(_ sender: Any) {
+        guard let workoutViewCtl = storyboard?.instantiateViewController(identifier: "workoutSetting") as? WorkoutViewController else {print("Failed to get workout view controller from storyboard")
+            return
+        }
+        present(workoutViewCtl, animated:true, completion: nil)
+    }
+    
+    // When cooldown button tapped (Button 3)
+    // Goes to editor
+    @IBAction func didTapCooldown(_ sender: Any) {
+        guard let workoutViewCtl = storyboard?.instantiateViewController(identifier: "workoutSetting") as? WorkoutViewController else {
+            print("Failed to get workout view controller from storyboard")
+            return
+        }
+        present(workoutViewCtl, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+}
+
+
 // Profile -----------------------------------------------------------------------------------------------------------------------------
 class ProfileViewController: UIViewController{
     
